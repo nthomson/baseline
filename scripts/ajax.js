@@ -36,18 +36,3 @@ function sendRequest(xmlhttp, url, method, params) {
 	xmlhttp.open(method, url, true);
 	xmlhttp.send(params);
 }
-
-// parses errors returned from SchedulerAJAX.aspx
-// response text is an error if it starts with "Error:"
-// this will return just the message following the "Error:", or an empty string if there is no error
-function parseError(text) {
-	if(text == null)
-		return "";
-		
-	text = new String(text);
-	
-	if(text.substr(0, 6) != "Error:")
-		return "";
-		
-	return text.substr(6, text.length - 6);
-}

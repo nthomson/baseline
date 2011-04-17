@@ -25,7 +25,7 @@ window.onload=function(){
 	var inputs = document.getElementsByClassName('validate');
 	
 	for(var i = 0; i < inputs.length; i++) {
-		inputs[i].onkeydown = keyHandler;
+		inputs[i].onkeypress = keyHandler;
 	}
 }
 
