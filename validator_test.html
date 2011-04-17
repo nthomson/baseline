@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Valid test</title>
+	<script language="JavaScript" src="scripts/validator.js"></script>
+	<style>
+	body{background-color:#88f;}
+	</style>
+</head>
+<body>
+	<form name="sampleForm">
+		<h1>Validation Test</h1>
+		<p>
+			Email: <input id="email" class="validate" validType="email" /><span id="email-error"></span>
+		</p>
+		<p>
+			URL: <input id="url" class="validate" validType="url" /><span id="url-error"></span>
+		</p>
+		<p>
+			Nonblank: <input id="nonblank" class="validate" validType="nonblank" /><span id="nonblank-error"></span>
+		</p>
+	</form>
+</body>
+</html>
