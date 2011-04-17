@@ -7,7 +7,7 @@ Your HTML structure should look like this:
 <input id="urlInput" type="text" class="validate" validType="url" /><span id="urlInput-error"></span>
 
 An id, class, and validType are all required on the input, its also required that the error output have an id of the form: [input's id]-error
-*******/
+********/
 
 //This is an array to handle the types of validations
 var validations;
@@ -17,8 +17,7 @@ window.onload=function(){
 	//validations['validType'] = ['pattern','error text'];
 	validations = new Array();
 	validations['email'] = ['.@.', 'Your email must be of the form: you@example.com'];
-	//TODO: Better url regex
-	validations['url'] = ['((https?):((//)|(\\\\))+[\w\d:#@%/;$()~_?\+-=\\\.&]*)', 'Your URL must be of the form: http://example.com'];
+	validations['url'] = ['((https?):((//)|(\\\\))+[\w\d:#@%/;$()~_?\+-=\\\.&]*)', 'Your URL must be of the form: http://example.com'];//TODO: Better url regex
 	validations['nonblank'] = ['.', 'This field cannot be blank'];
 	
 	//Find all inputs needed to be validated, and add proper elements/listeners
@@ -62,18 +61,18 @@ function validationHandler(input) {
 	}
 }
 
-//Called every time a key is pressed, we add a timeout so that we only validate 500 milliseconds after the last key is pressed
+//Called every time a key is pressed, we add a timeout so that we run the validation 500 milliseconds after the last key is pressed
 function keyHandler() {
 	var input = this;
 	
 	//Add the "loading" graphic to the error output for this form
 	document.getElementById(input.id+"-error").innerHTML = "<img src='img/loading.gif' />";
-	if (input.getAttribute(input.id+"timeout")) {
-		window.clearTimeout(input.getAttribute(input.id+"timeout"));
+	if (input.getAttribute("timeout")) {
+		window.clearTimeout(input.getAttribute("timeout"));
 	}
 
 	//Run the validation if no keys have been pressed in half a second
-	input.setAttribute(input.id+"timeout", window.setTimeout(function () { validationHandler(input) }, 500));
+	input.setAttribute("timeout", window.setTimeout(function () { validationHandler(input) }, 500));
 
 	return true;
 }
